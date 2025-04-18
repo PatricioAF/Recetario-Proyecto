@@ -1,0 +1,110 @@
+:root {
+    --primary: #fcb165;
+    --primary-dark: #fe9040;
+    --secundary: #ff7866;
+    --secundary-dark: #ff5040;
+    --gray: #e1e4e5;
+    --gray-dark: #4b4c4d;
+    --black: #323333;
+    --white: #f5f9fa;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/recursos/imagen-cocina4.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+header {
+    display: flex;
+    background-color: var(--secundary-dark);
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+header h1 {
+    color: var(--white);
+    font-size: 50px;
+}
+
+.burger-menu {
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 25px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.burger-menu:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+header div img {
+    width: 100px;
+    height: 100px;
+    border-radius: 45px;
+}
+
+main {
+    min-height: 300px;
+}
+
+.crear-receta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    width: 600px;
+    transform: translateX(60%);
+    margin-top: 70px;
+    padding: 20px 0 30px 0;
+    color: var(--black);
+    border-radius: 5px;
+    border: 1px solid rgb(211, 211, 211);
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.boton-crear {
+    background-color: var(--secundary);
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    transition: background-color .3s ease, transform .3s ease, border-radius .3s ease;
+    cursor: pointer;
+}
+
+.boton-crear:hover {
+    background-color: #4CAF50;
+    transform: scale(1.05);
+    border-radius: 0;
+}
+
+.lista-recetas {
+    background-color: white;
+    height: 20px;
+    width: 600px;
+    transform: translateX(60%);
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+    margin-top: 25px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    background-color: var(--gray-dark);
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
