@@ -8,7 +8,7 @@
     --black: #323333;
     --white: #f5f9fa;
 }
-
+/* estilos del body */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -18,7 +18,7 @@ body {
     background-position: center center;
     background-size: cover;
 }
-
+/* estilos del header  */
 header {
     display: flex;
     background-color: var(--secundary-dark);
@@ -26,12 +26,12 @@ header {
     justify-content: space-around;
     padding: 30px;
 }
-
+/* estilos del titulo  */
 header h1 {
     color: var(--white);
     font-size: 50px;
 }
-
+/* estilos del boton con el icono de hamburguesa  */
 .burger-menu {
     width: 45px;
     height: 45px;
@@ -43,7 +43,7 @@ header h1 {
     cursor: pointer;
     transition: background-color .3s ease, color .3s ease;
 }
-
+/* estableciendo transiciones usando transiciones  */
 .burger-menu:hover {
     background-color: var(--white);
     color: var(--black);
@@ -58,7 +58,7 @@ header div img {
 main {
     min-height: 300px;
 }
-
+/* estilos de la seccion donde se clickea para crear una receta  */
 .crear-receta {
     display: flex;
     flex-direction: column;
@@ -74,7 +74,7 @@ main {
     border: 1px solid rgb(211, 211, 211);
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
 }
-
+/* estilos del boton crear  */
 .boton-crear {
     background-color: var(--secundary);
     padding: 10px 20px 10px 20px;
@@ -84,13 +84,13 @@ main {
     transition: background-color .3s ease, transform .3s ease, border-radius .3s ease;
     cursor: pointer;
 }
-
+/* transicion en el boton crear  */
 .boton-crear:hover {
     background-color: #4CAF50;
     transform: scale(1.05);
     border-radius: 0;
 }
-
+/* estilos para seccion donde aparecera la lista de recetas creadas */
 .lista-recetas {
     background-color: white;
     height: 20px;
@@ -100,6 +100,52 @@ main {
     border-radius: 5px;
     margin-top: 25px;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* estilos para el contenedor del modal */
+
+.contenedor-modal {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 100; */
+}
+
+/* estilos para el contenido del modal */
+
+.contenido-modal {
+    background-color: var(--primary);
+    padding-bottom: 20px;
+    width: 50%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* estilos para el h2 del contenido del modal */
+
+.contenido-modal h2 {
+    background-color: var(--gray);
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* estilos para los inputs */
+
+.contenedor-modal input {
+    padding: 5px;
+    background-color: var(--gray);
+    border: none;
+    border-radius: 5px;
+    width: 50%;
 }
 
 footer {
