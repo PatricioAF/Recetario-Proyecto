@@ -7,6 +7,8 @@
     --gray-dark: #4b4c4d;
     --black: #323333;
     --white: #f5f9fa;
+    --green: #34D399;
+    --green-dark: #039e6a;
 }
 /* estilos del body */
 body {
@@ -111,7 +113,7 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 600px;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,30 +124,102 @@ main {
 
 .contenido-modal {
     background-color: var(--primary);
-    padding-bottom: 20px;
-    width: 50%;
+    padding-bottom: 40px;
+    width: 75%;
+    height: auto;
     border-radius: 5px;
     text-align: center;
 }
 
-/* estilos para el h2 del contenido del modal */
+/* estilos para el titulo del modal  */
 
-.contenido-modal h2 {
+.titulo-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--gray);
     margin: 0;
-    padding: 10px;
+    padding: 10px 30px 10px 30px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-/* estilos para los inputs */
+.titulo-modal-btn {
+    /* background-color: #4CAF50; */
+    width: 125px;
+    display: flex;
+    justify-content: space-between;
+}
 
-.contenedor-modal input {
-    padding: 5px;
+/* estilos para el boton de guardar dentro del modal */
+
+#guardar {
+    background-color: var(--green);
+    padding: 10px;
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#guardar:hover {
+    background-color: var(--green-dark);
+    transform: scale(1.05);
+    border-radius: 0;
+}
+
+/* estilos para el boton de cerrar dentro del modal */
+
+#cerrar {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#cerrar:hover {
+    border-radius: 0;
+    border: 1px solid var(--gray-dark);
+    transform: scale(1.05);
+}
+
+/* Estilos para el segundo contenido del contenedor modal donde estan los titulos h4 y los inputs */
+
+.contenido-modal-dos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.titulo-textarea {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* estilos para los textarea */
+
+.contenedor-modal textarea {
+    padding: 10px;
     background-color: var(--gray);
     border: none;
     border-radius: 5px;
-    width: 50%;
+    width: 40ch;
+    transition: all .3s ease;
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    resize: none;
+}
+
+.contenedor-modal textarea:hover {
+    transform: scale(1.05);
+}
+
+.contenedor-modal textarea:focus {
+    width: 60ch;
+    height: 20ch;
+    z-index: 1;
 }
 
 footer {
