@@ -57,8 +57,34 @@ header div img {
     border-radius: 45px;
 }
 
+.carrusel-frases {
+    background-color: var(--secundary);
+    color: var(--white);
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carrusel-frases p {
+    display: inline-block;
+    white-space: nowrap;
+    animation: desplazamiento 15s linear infinite;
+    font-size: 20px;
+    padding-left: 100%;
+  }
+  
+  @keyframes desplazamiento {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
 main {
     min-height: 300px;
+    margin-bottom: 50px;
 }
 /* estilos de la seccion donde se clickea para crear una receta  */
 .crear-receta {
@@ -95,13 +121,45 @@ main {
 /* estilos para seccion donde aparecera la lista de recetas creadas */
 .lista-recetas {
     background-color: white;
-    height: 20px;
+    height: auto;
     width: 600px;
     transform: translateX(60%);
     border: 1px solid rgb(211, 211, 211);
     border-radius: 5px;
     margin-top: 25px;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.lista-recetas ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    margin: 0;
+}
+
+.lista-recetas ul li {
+    width: 150px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.lista-recetas ul li:hover {
+    box-shadow: none;
+    transform: translateY(5px) scale(0.98);
+    border: 1px solid var(--primary-dark);
+}
+
+.lista-recetas ul li img {
+    width: 150px;
+    border-radius: 5px;
 }
 
 /* estilos para el contenedor del modal */
@@ -114,7 +172,7 @@ main {
     left: 0;
     width: 100%;
     min-height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     /* z-index: 100; */
