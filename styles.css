@@ -45,7 +45,9 @@ header h1 {
     cursor: pointer;
     transition: background-color .3s ease, color .3s ease;
 }
+
 /* estableciendo transiciones usando transiciones  */
+
 .burger-menu:hover {
     background-color: var(--white);
     color: var(--black);
@@ -86,7 +88,9 @@ main {
     min-height: 300px;
     margin-bottom: 50px;
 }
+
 /* estilos de la seccion donde se clickea para crear una receta  */
+
 .crear-receta {
     display: flex;
     flex-direction: column;
@@ -148,6 +152,33 @@ main {
     border-radius: 5px;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.boton-editar {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 75%;
+    border: 1px solid  rgb(211, 211, 211);
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.boton-eliminar {
+    display: none;
+    position: absolute;
+    top: 3%;
+    left: 75%;
+    border: 1px solid  rgb(211, 211, 211);
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
     transition: all .3s ease;
 }
 
@@ -157,10 +188,30 @@ main {
     border: 1px solid var(--primary-dark);
 }
 
+.lista-recetas ul li:hover .boton-editar,
+.lista-recetas ul li:hover .boton-eliminar {
+    display: block;
+}
+
+.boton-editar:hover {
+    transform: scale(1.08);
+    border: 1px solid var(--green-dark);
+    background-color: var(--green)
+}
+
+.boton-eliminar:hover {
+    transform: scale(1.08);
+    border: 1px solid var(--primary-dark);
+    background-color: var(--primary)
+}
+
+
 .lista-recetas ul li img {
     width: 150px;
     border-radius: 5px;
 }
+
+/* ------------------------------------------------------------ */
 
 /* estilos para el contenedor del modal */
 
@@ -258,16 +309,16 @@ main {
 /* estilos para los textarea */
 
 .contenedor-modal textarea {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 10px;
     padding: 10px;
     background-color: var(--gray);
     border: none;
     border-radius: 5px;
-    width: 40ch;
+    resize: vertical;
     transition: all .3s ease;
-    position: absolute;
-    top: 70%;
-    left: 20%;
-    resize: none;
+    position: static; /* o simplemente elimina position */
 }
 
 .contenedor-modal textarea:hover {
@@ -279,6 +330,37 @@ main {
     height: 20ch;
     z-index: 1;
 }
+
+/* Estilos para el modal que se abre para ver los detalles de las recetas guardadas */
+
+.contenedor-modal-detalle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-modal-detalle {
+    background-color: var(--green-dark);
+    width: 75%;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+}
+
+#cerrar-detalle {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+  }
 
 footer {
     background-color: var(--gray-dark);
