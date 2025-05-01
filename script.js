@@ -15,12 +15,21 @@ let listaRecetas = document.querySelector('.lista-recetas ul')
 
 botonCrear.addEventListener('click', () => {
     document.querySelector('.contenedor-modal').style.display = 'flex';
+
+        // Limpiar los textarea para crear nueva receta
+        document.querySelector('#titulo').value = '';
+        document.querySelector('#ingredientes').value = '';
+        document.querySelector('#preparacion').value = '';
+        document.querySelector('#descripcion').value = '';
+    
+        recetaEditando = null;
 });
 
 // funcionalidades del modal donde creamos una receta 
 
 botonCerrar.addEventListener('click', () => {
     document.querySelector('.contenedor-modal').style.display = 'none';
+    recetaEditando = null;
 });
 
 botonGuardar.addEventListener('click', () => {
@@ -30,17 +39,38 @@ botonGuardar.addEventListener('click', () => {
     //obtiene el localStorage actual o una lista vacia si no hay nada 
     let recetasGuardadas = JSON.parse(localStorage.getItem('recetas')) || [];
 
+    if (recetaEditando) {
+        recetasGuardadas = recetasGuardadas.map(r => {
+            if (r.titulo === recetaEditando.titulo) {
+                //actualizamos los datos
+                return {
+                    titulo: document.querySelector('#titulo').value,
+                    ingredientes: document.querySelector('#ingredientes').value,
+                    preparacion: document.querySelector('#preparacion').value,
+                    descripcion: document.querySelector('#descripcion').value
+                };
+            } else {
+                return r;
+            }
+        });
 
-    let nuevaReceta = {
-        titulo: document.querySelector('#titulo').value,
-        ingredientes: document.querySelector('#ingredientes').value,
-        preparacion: document.querySelector('#preparacion').value,
-        descripcion: document.querySelector('#descripcion').value
-    };
+        recetaEditando = null;
+    } else {
 
 
-    //Agrega la nueva receta al array
-    recetasGuardadas.push(nuevaReceta);
+
+        let nuevaReceta = {
+            titulo: document.querySelector('#titulo').value,
+            ingredientes: document.querySelector('#ingredientes').value,
+            preparacion: document.querySelector('#preparacion').value,
+            descripcion: document.querySelector('#descripcion').value
+        };
+
+
+        //Agrega la nueva receta al array
+        recetasGuardadas.push(nuevaReceta);
+
+    }
 
 
     //guarda el array actualizado en tipo string la nueva receta creada
@@ -60,7 +90,7 @@ function mostrarRecetas() {
 
     recetas.forEach(receta => {
 
-        if(!receta) return;
+        if (!receta) return;
 
         //funcionalidad para la lista de recetas
 
@@ -96,6 +126,18 @@ function mostrarRecetas() {
             // Vuelve a mostrar las recetas actualizadas
             mostrarRecetas();
         });
+
+        botonEditar.addEventListener('click', (evento) => {
+            evento.stopPropagation();
+
+            document.querySelector('.contenedor-modal').style.display = 'flex';
+
+            recetaEditando = receta;
+            document.querySelector('#titulo').value = recetaEditando.titulo;
+            document.querySelector('#ingredientes').value = recetaEditando.ingredientes;
+            document.querySelector('#preparacion').value = recetaEditando.preparacion;
+            document.querySelector('#descripcion').value = recetaEditando.descripcion;
+        })
 
         //evento de cada elemento para abrir modal que muestra detalles
 

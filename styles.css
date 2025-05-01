@@ -346,14 +346,29 @@ main {
 }
 
 .contenido-modal-detalle {
-    background-color: var(--green-dark);
+    background-color: var(--secundary-dark);
     width: 75%;
     text-align: center;
-    padding: 10px 0 10px 0;
+    padding: 0 0 10px 0;
     border-radius: 5px;
-    color: white;
+    color: var(--white);
     position: relative;
 }
+
+#encabezado {
+    background-color: var(--gray);
+    padding: 5px;
+    margin: 0;
+    height: auto;
+    color: var(--black);
+}
+
+#contenido {
+    padding: 0 30px 0 30px;
+    text-align: justify;
+}
+
+
 
 #cerrar-detalle {
     position: absolute;
@@ -367,4 +382,58 @@ footer {
     padding: 10px;
     text-align: center;
     color: white;
+}
+
+/* --------------------------------------------------------------------------- */
+
+/* Estilos para dispositivos moviles usando media queries */
+
+@media only screen and (max-width: 768px){
+
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .crear-receta, .lista-recetas {
+        width: 90%;
+        transform: translateX(0);
+        margin: 20px auto;
+    }
+
+    .contenido-modal, .contenido-modal-detalle {
+        width: 95%;
+    }
+
+    .contenido-modal-dos {
+        grid-template-columns: 1fr;
+    }
+
+    .carrusel-frases p {
+        font-size: 16px;
+    }
+
+    .lista-recetas ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .lista-recetas ul li {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .boton-editar, .boton-eliminar {
+        right: 10px;
+        left: auto;
+    }
+    
 }
